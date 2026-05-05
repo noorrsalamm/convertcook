@@ -1,0 +1,65 @@
+body{
+font-family:Arial;
+background:#f4f4f4;
+text-align:center;
+transition:0.3s;
+}
+
+.dark{
+background:#121212;
+color:white;
+}
+
+.container{
+background:white;
+width:90%;
+max-width:500px;
+margin:auto;
+margin-top:40px;
+padding:20px;
+border-radius:10px;
+}
+
+.dark .container{
+background:#1e1e1e;
+}
+
+.top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+select,input,button{
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+button{
+background:#333;
+color:white;
+cursor:pointer;
+}
+
+#history{
+list-style:none;
+padding:0;
+}
+
+#history li{
+background:#eee;
+margin:5px;
+padding:8px;
+border-radius:6px;
+}
+
+.dark #history li{
+background:#333;
+}
+
+.note{
+color:gray;
+}
