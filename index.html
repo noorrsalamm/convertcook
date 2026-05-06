@@ -3,19 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kitchen Converter Pro</title>
+<title>Kitchen Converter</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
 
-<div class="top">
-<h1>🍳 Kitchen Converter Pro</h1>
-<button id="themeBtn">🌙</button>
-</div>
-
-<p>محول ذكي للمقادير</p>
+<h1>🍳 محول المقادير</h1>
+<p>تحويل ذكي للمطبخ (غرام / لتر / كوب)</p>
 
 <select id="ingredient">
 <option value="flour">طحين</option>
@@ -30,7 +26,8 @@
 <select id="unit">
 <option value="g">غرام</option>
 <option value="kg">كيلوغرام</option>
-<option value="ml">ml</option>
+<option value="ml">ملليلتر</option>
+<option value="l">لتر</option>
 <option value="cup">كوب</option>
 </select>
 
@@ -38,11 +35,7 @@
 
 <h2 id="result"></h2>
 
-<button onclick="saveResult()">💾 حفظ النتيجة</button>
-
-<ul id="history"></ul>
-
-<p class="note">* القيم تقريبية</p>
+<p class="note">* القيم تقريبية وتختلف حسب المادة</p>
 
 </div>
 
