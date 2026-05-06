@@ -6,8 +6,6 @@ milk:240,
 oil:220
 };
 
-let history = JSON.parse(localStorage.getItem("history")) || [];
-
 function convert(){
 
 let ingredient = document.getElementById("ingredient").value;
@@ -21,57 +19,35 @@ return;
 
 amount = Number(amount);
 
-let resultText = "";
-
+// kg → g
 if(unit === "kg"){
 amount *= 1000;
 }
 
+// L → ml
+if(unit === "l"){
+amount *= 1000;
+unit = "ml";
+}
+
+// ml → cups (للأشياء السائلة)
 if(unit === "ml"){
 let cups = amount / 240;
-resultText = cups.toFixed(2) + " كوب";
+document.getElementById("result").innerText =
+cups.toFixed(2) + " كوب";
+return;
 }
 
-else if(unit === "cup"){
+// cup → g
+if(unit === "cup"){
 let grams = amount * data[ingredient];
-resultText = grams.toFixed(2) + " غرام";
+document.getElementById("result").innerText =
+grams.toFixed(2) + " غرام";
+return;
 }
 
-else{
+// g → cups
 let cups = amount / data[ingredient];
-resultText = cups.toFixed(2) + " كوب";
+document.getElementById("result").innerText =
+cups.toFixed(2) + " كوب";
 }
-
-document.getElementById("result").innerText = resultText;
-
-window.lastResult = resultText;
-}
-
-function saveResult(){
-
-if(!window.lastResult) return;
-
-history.push(window.lastResult);
-
-localStorage.setItem("history", JSON.stringify(history));
-
-showHistory();
-}
-
-function showHistory(){
-
-let list = document.getElementById("history");
-list.innerHTML = "";
-
-history.forEach(item=>{
-let li = document.createElement("li");
-li.innerText = item;
-list.appendChild(li);
-});
-}
-
-document.getElementById("themeBtn").addEventListener("click",()=>{
-document.body.classList.toggle("dark");
-});
-
-showHistory();
